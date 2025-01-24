@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class and Faction Selector</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    input {
+      padding: 8px;
+      width: 200px;
+      margin-bottom: 16px;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Class and Faction Selector</h1>
+  <label for="class">Class:</label>
+  <input type="text" id="class" placeholder="Enter your class">
+
+  <label for="faction">Faction:</label>
+  <input type="text" id="faction" placeholder="Enter your faction">
+
+  <div id="output"></div>
+
+  <script>
+    // Get references to the input fields and output div
+    const classInput = document.getElementById('class');
+    const factionInput = document.getElementById('faction');
+    const outputDiv = document.getElementById('output');
+
+    // Function to update the output text
+    function updateOutput() {
+      const className = classInput.value.trim();
+      const factionName = factionInput.value.trim();
+
+      if (className && factionName) {
+        outputDiv.textContent = `You have selected ${className} and ${factionName}`;
+      } else {
+        outputDiv.textContent = '';
+      }
+    }
+
+    // Add event listeners to the input fields
+    classInput.addEventListener('input', updateOutput);
+    factionInput.addEventListener('input', updateOutput);
+  </script>
+</body>
+</html>
